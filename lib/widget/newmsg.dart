@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+
 
 class NewMessage extends StatefulWidget {
   const NewMessage({super.key});
@@ -11,7 +15,8 @@ class NewMessage extends StatefulWidget {
 
 class _NewMessageState extends State<NewMessage> {
   var messagecontroller=TextEditingController();
-  
+  File? pickedimagefile;
+
   void message()async{
     final textMessage=messagecontroller.text;
     if(textMessage.trim().isEmpty){
@@ -33,7 +38,10 @@ class _NewMessageState extends State<NewMessage> {
         'username':userdata.data()!['username'],
         'image_url':userdata.data()!['image_url']
       });
+    
   }
+
+ 
 
   
   @override
@@ -45,25 +53,34 @@ class _NewMessageState extends State<NewMessage> {
           children: [
             Expanded(
               child: TextField(
+                cursorColor: Colors.white,
+              style: TextStyle(color: Colors.white),
                  controller:messagecontroller ,
                 decoration: InputDecoration(
+               
+                  
                   border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(30),
                     
                   ),
                   label: Text('Text here...',
+                 
                   style: TextStyle(
-                    color: Colors.black,
-
+                    color: Colors.white,
+                    
                   ),
                   ),
-
+                   
                 ),
+                
               ),
+              
             ),
+          
+          
             IconButton(onPressed: message, 
             icon: Icon(Icons.send,
-            color: Color.fromARGB(255, 24, 80, 26),
+            color: Colors.white
             ))
             
           ],

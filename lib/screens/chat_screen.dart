@@ -12,43 +12,41 @@ class ChatScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey.shade300,
-      appBar: PreferredSize(
-            preferredSize: Size.fromRadius(50),
+    return Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(colors: [
+         const Color.fromARGB(255, 0, 54, 99),
+       const Color.fromARGB(255, 43, 56, 79)
 
-             child: ClipRRect(
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.elliptical(10, 10),
-
-                )
-              ,
-               child: AppBar(
-                centerTitle: true,
-                backgroundColor: Color.fromARGB(255, 27, 61, 28),
-               title: Text('chats',
-               style: GoogleFonts.aDLaMDisplay(
-               color: Color.fromARGB(209, 255, 255, 255),
-                fontSize: 30,
-                 
-                         
-               ),
-
-               ),
-                actions: [
-                  IconButton(onPressed: (){
-                    FirebaseAuth.instance.signOut();
-                  }, icon: Icon(Icons.exit_to_app,
-                  color: Colors.white,
-                  size: 30,
-
-                  ))
-                ],
-                         
-                         ),
-             ),
-           ),
-          body: Column(
+      ])
+    ),
+      child: Scaffold(
+       extendBodyBehindAppBar: true,
+       backgroundColor: Colors.transparent,
+        appBar:  AppBar(
+                  centerTitle: true,
+                  backgroundColor:Colors.transparent,
+                 title: Text('chats',
+                 style: GoogleFonts.aDLaMDisplay(
+                 color: Color.fromARGB(209, 255, 255, 255),
+                  fontSize: 30,
+                   
+                           
+                 ),
+      
+                 ),
+                  actions: [
+                    IconButton(onPressed: (){
+                      FirebaseAuth.instance.signOut();
+                    }, icon: Icon(Icons.exit_to_app,
+                    color: Colors.white,
+                    size: 30,
+      
+                    ))
+                  ],
+                           
+                           ),
+                            body: Column(
         children: [
           Expanded(
             child: ChatMessage()),
@@ -56,8 +54,9 @@ class ChatScreen extends StatelessWidget {
           NewMessage()
         ],
       )
-        );
-    
+               ),
+    );
+     
     
   }
 }

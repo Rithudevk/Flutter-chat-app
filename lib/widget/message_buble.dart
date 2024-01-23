@@ -84,7 +84,7 @@ class MessageBubble extends StatelessWidget {
                         username!,
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black87,
+                          color: Colors.black,
                         ),
                       ),
                     ),
@@ -93,7 +93,7 @@ class MessageBubble extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       color: isMe
-                          ? Colors.green
+                          ? Colors.white70
                           : theme.colorScheme.secondary.withAlpha(200),
                       // Only show the message bubble's "speaking edge" if first in
                       // the chain.
@@ -130,7 +130,7 @@ class MessageBubble extends StatelessWidget {
                         // when multilined.
                         height: 1.3,
                         color: isMe
-                            ? Colors.black87
+                            ? Colors.black
                             : theme.colorScheme.onSecondary,
                       ),
                       softWrap: true,

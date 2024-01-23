@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
    
     super.initState();
-   Timer(const Duration(seconds: 4), () {
+   Timer(const Duration(seconds: 5), () {
      Navigator.of(context).push(MaterialPageRoute(
       builder: (ctx)=>Auth()));
 
@@ -33,33 +33,43 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      backgroundColor:const Color.fromARGB(255, 2, 47, 4).withOpacity(1),
-      body:Column(mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-         
-       Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-         children: [
-         const Icon(Icons.chat_outlined,
-          color: Colors.purple,
-          size: 50,shadows: [BoxShadow(blurRadius: 30,
-          color: Colors.purple)],
-          ),
-        const  SizedBox(width: 10,),
-           Text("ToToK",
-           style: GoogleFonts.gideonRoman(
-            fontSize: 40,
-            color: Colors.white,
-            fontWeight: FontWeight.bold
-           
-           ),
-           ),
+    return  Container(
+     decoration: BoxDecoration(
+      gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [
+       const Color.fromARGB(255, 0, 54, 99),
+       const Color.fromARGB(255, 43, 56, 79)
 
-         ],
-       )
-        ],
-      )
+       
+      ])
+     ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        extendBodyBehindAppBar: true,
+       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+       ),
+        body: Center(
+          child: Container(
+            child: Text('Hello..!',
+            style: GoogleFonts.lancelot(
+              color: Colors.white,
+              fontSize: 40,
+              fontWeight: FontWeight.bold,
+           shadows: <Shadow>[Shadow(
+            color: Colors.white,
+            blurRadius: 20,
+           
+           )]
+            ),
+
+            ),
+
+          ),
+        ), 
+      ),
     );
     
   }
